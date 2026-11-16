@@ -1,0 +1,307 @@
+{
+  "users": [
+    {
+      "id": "u-1001",
+      "email": "maria.alvarez@fieldops.example",
+      "password": "FieldOps!2026",
+      "name": "Maria Alvarez",
+      "role": "Field Technician",
+      "region": "North Metro",
+      "employeeNumber": "FO-48213"
+    },
+    {
+      "id": "u-1002",
+      "email": "james.chen@fieldops.example",
+      "password": "FieldOps!2026",
+      "name": "James Chen",
+      "role": "Senior Field Technician",
+      "region": "Harbor District",
+      "employeeNumber": "FO-39027"
+    },
+    {
+      "id": "u-1003",
+      "email": "priya.nair@fieldops.example",
+      "password": "FieldOps!2026",
+      "name": "Priya Nair",
+      "role": "Field Technician",
+      "region": "East Valley",
+      "employeeNumber": "FO-51766"
+    },
+    {
+      "id": "u-1004",
+      "email": "tom.becker@fieldops.example",
+      "password": "FieldOps!2026",
+      "name": "Tom Becker",
+      "role": "Field Supervisor",
+      "region": "West Industrial",
+      "employeeNumber": "FO-22381"
+    }
+  ],
+  "devices": [
+    {
+      "id": "d-2001",
+      "employeeId": "u-1001",
+      "deviceName": "FieldOps iPhone 0412",
+      "platform": "ios",
+      "osVersion": "19.1",
+      "appVersion": "1.0.0",
+      "managed": true,
+      "status": "active",
+      "enrolledAt": "2026-03-04T09:15:00.000Z",
+      "lastCheckIn": "2026-11-15T17:42:10.000Z",
+      "policyId": "pol-secure",
+      "policyVersion": 3,
+      "accessRevoked": false,
+      "biometricsEnrolled": null,
+      "secureStorage": null
+    },
+    {
+      "id": "d-2002",
+      "employeeId": "u-1002",
+      "deviceName": "FieldOps Pixel 0377",
+      "platform": "android",
+      "osVersion": "16",
+      "appVersion": "1.0.0",
+      "managed": true,
+      "status": "active",
+      "enrolledAt": "2026-02-18T13:02:00.000Z",
+      "lastCheckIn": "2026-11-15T16:05:44.000Z",
+      "policyId": "pol-standard",
+      "policyVersion": 2,
+      "accessRevoked": false,
+      "biometricsEnrolled": null,
+      "secureStorage": null
+    },
+    {
+      "id": "d-2003",
+      "employeeId": "u-1003",
+      "deviceName": "FieldOps iPhone 0298",
+      "platform": "ios",
+      "osVersion": "18.6",
+      "appVersion": "0.9.4",
+      "managed": true,
+      "status": "revoked",
+      "enrolledAt": "2025-11-20T08:30:00.000Z",
+      "lastCheckIn": "2026-11-10T11:20:31.000Z",
+      "policyId": "pol-secure",
+      "policyVersion": 3,
+      "accessRevoked": true,
+      "biometricsEnrolled": true,
+      "secureStorage": "ios_keychain"
+    },
+    {
+      "id": "d-2004",
+      "employeeId": "u-1004",
+      "deviceName": "FieldOps Galaxy 0150",
+      "platform": "android",
+      "osVersion": "14",
+      "appVersion": "0.9.1",
+      "managed": true,
+      "status": "quarantined",
+      "enrolledAt": "2025-08-11T10:45:00.000Z",
+      "lastCheckIn": "2026-11-12T07:58:02.000Z",
+      "policyId": "pol-quarantine",
+      "policyVersion": 1,
+      "accessRevoked": false,
+      "biometricsEnrolled": false,
+      "secureStorage": "KeystoreAESGCM_NoAuth"
+    }
+  ],
+  "policies": [
+    {
+      "id": "pol-secure",
+      "name": "Field Secure",
+      "description": "Biometric unlock required. Corporate data is only available while the device can reach FieldOps.",
+      "deviceAllowed": true,
+      "requireBiometrics": true,
+      "allowOfflineAccess": false,
+      "policyVersion": 3,
+      "updatedAt": "2026-10-28T12:00:00.000Z"
+    },
+    {
+      "id": "pol-standard",
+      "name": "Field Standard",
+      "description": "Password sign-in with secure credential storage. Offline access permitted.",
+      "deviceAllowed": true,
+      "requireBiometrics": false,
+      "allowOfflineAccess": true,
+      "policyVersion": 2,
+      "updatedAt": "2026-09-14T08:30:00.000Z"
+    },
+    {
+      "id": "pol-quarantine",
+      "name": "Quarantine",
+      "description": "Device failed compliance review. Access to corporate resources is blocked until IT re-enrolls it.",
+      "deviceAllowed": false,
+      "requireBiometrics": true,
+      "allowOfflineAccess": false,
+      "policyVersion": 1,
+      "updatedAt": "2026-11-12T08:00:00.000Z"
+    }
+  ],
+  "workOrders": [
+    {
+      "id": "wo-5101",
+      "title": "Replace failed rooftop HVAC compressor",
+      "customerName": "Northgate Medical Plaza",
+      "contactName": "Daniel Okafor",
+      "contactPhone": "+1 555-0142",
+      "address": "1180 Northgate Blvd, Suite 300",
+      "description": "Unit RTU-3 tripped on high head pressure overnight. Facilities reports no cooling on floors 2–3. Bring replacement compressor (part #CMP-4410) and recovery cylinder. Coordinate roof access with building security.",
+      "priority": "critical",
+      "status": "in_progress",
+      "scheduledFor": "2026-11-16T08:00:00.000Z",
+      "estimatedHours": 5,
+      "assetId": "RTU-3",
+      "assignedEmployeeId": "u-1001"
+    },
+    {
+      "id": "wo-5102",
+      "title": "Quarterly fire panel inspection",
+      "customerName": "Riverside Logistics Hub",
+      "contactName": "Hannah Brooks",
+      "contactPhone": "+1 555-0178",
+      "address": "45 Wharf Road, Dock B",
+      "description": "Run the quarterly inspection checklist on the main fire alarm control panel and two remote annunciators. Upload signed inspection report before closing.",
+      "priority": "high",
+      "status": "open",
+      "scheduledFor": "2026-11-16T13:30:00.000Z",
+      "estimatedHours": 2,
+      "assetId": "FACP-01",
+      "assignedEmployeeId": "u-1001"
+    },
+    {
+      "id": "wo-5103",
+      "title": "Badge reader offline at loading entrance",
+      "customerName": "Cobalt Data Center",
+      "contactName": "Luis Ferreira",
+      "contactPhone": "+1 555-0110",
+      "address": "900 Innovation Way, Building C",
+      "description": "Access control reader at the east loading door is not reporting to the controller. Check PoE switch port and reader wiring. Escort required inside the white space.",
+      "priority": "medium",
+      "status": "open",
+      "scheduledFor": "2026-11-17T09:00:00.000Z",
+      "estimatedHours": 1.5,
+      "assetId": "ACR-EAST-07",
+      "assignedEmployeeId": "u-1001"
+    },
+    {
+      "id": "wo-5104",
+      "title": "Generator load bank test",
+      "customerName": "Northgate Medical Plaza",
+      "contactName": "Daniel Okafor",
+      "contactPhone": "+1 555-0142",
+      "address": "1180 Northgate Blvd, Generator Yard",
+      "description": "Annual 2-hour load bank test on the 500 kW standby generator. Record voltage, frequency, and coolant temperature every 15 minutes.",
+      "priority": "low",
+      "status": "on_hold",
+      "scheduledFor": "2026-11-19T07:00:00.000Z",
+      "estimatedHours": 3,
+      "assetId": "GEN-500-A",
+      "assignedEmployeeId": "u-1001"
+    },
+    {
+      "id": "wo-5105",
+      "title": "Install occupancy sensors, floor 4",
+      "customerName": "Lumen Architecture Studio",
+      "contactName": "Sofia Martins",
+      "contactPhone": "+1 555-0193",
+      "address": "220 Market Street, Floor 4",
+      "description": "Install and commission 14 ceiling occupancy sensors per lighting plan rev. B. Commissioning sheet attached to the customer portal.",
+      "priority": "medium",
+      "status": "completed",
+      "scheduledFor": "2026-11-13T10:00:00.000Z",
+      "estimatedHours": 6,
+      "assetId": "LTG-F4",
+      "assignedEmployeeId": "u-1001"
+    },
+    {
+      "id": "wo-5201",
+      "title": "Chiller vibration analysis",
+      "customerName": "Harbor View Hotel",
+      "contactName": "Grace Lin",
+      "contactPhone": "+1 555-0161",
+      "address": "12 Pier Avenue, Mechanical Room B2",
+      "description": "Guest complaints about noise near the B2 mechanical room. Capture vibration readings on chiller CH-2 bearings and compare against the August baseline.",
+      "priority": "high",
+      "status": "open",
+      "scheduledFor": "2026-11-16T10:00:00.000Z",
+      "estimatedHours": 2.5,
+      "assetId": "CH-2",
+      "assignedEmployeeId": "u-1002"
+    },
+    {
+      "id": "wo-5202",
+      "title": "Elevator machine room cooling check",
+      "customerName": "Harbor View Hotel",
+      "contactName": "Grace Lin",
+      "contactPhone": "+1 555-0161",
+      "address": "12 Pier Avenue, Roof Level",
+      "description": "Verify the split unit serving the elevator machine room holds below 30 °C under load. Clean condenser coil if required.",
+      "priority": "medium",
+      "status": "in_progress",
+      "scheduledFor": "2026-11-16T14:00:00.000Z",
+      "estimatedHours": 1,
+      "assetId": "SPL-ELV-1",
+      "assignedEmployeeId": "u-1002"
+    },
+    {
+      "id": "wo-5203",
+      "title": "Backflow preventer certification",
+      "customerName": "Seaside Community College",
+      "contactName": "Marcus Reid",
+      "contactPhone": "+1 555-0127",
+      "address": "300 College Drive, Utility Vault 2",
+      "description": "Annual certification test for the 4-inch reduced pressure backflow assembly. File results with the municipal water authority.",
+      "priority": "low",
+      "status": "completed",
+      "scheduledFor": "2026-11-12T09:30:00.000Z",
+      "estimatedHours": 1.5,
+      "assetId": "BFP-4-02",
+      "assignedEmployeeId": "u-1002"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "al-9001",
+      "employeeId": "u-1001",
+      "deviceId": "d-2001",
+      "action": "DEVICE_ENROLLED",
+      "timestamp": "2026-03-04T09:15:00.000Z",
+      "description": "Device enrolled in FieldOps device management and assigned policy Field Secure."
+    },
+    {
+      "id": "al-9002",
+      "employeeId": "u-1001",
+      "deviceId": "d-2001",
+      "action": "POLICY_UPDATED",
+      "timestamp": "2026-10-28T12:00:00.000Z",
+      "description": "Policy Field Secure updated to version 3: offline access disabled."
+    },
+    {
+      "id": "al-9003",
+      "employeeId": "u-1002",
+      "deviceId": "d-2002",
+      "action": "DEVICE_ENROLLED",
+      "timestamp": "2026-02-18T13:02:00.000Z",
+      "description": "Device enrolled in FieldOps device management and assigned policy Field Standard."
+    },
+    {
+      "id": "al-9004",
+      "employeeId": "u-1003",
+      "deviceId": "d-2003",
+      "action": "ACCESS_REVOKED",
+      "timestamp": "2026-11-10T11:25:00.000Z",
+      "description": "Administrator revoked application access for this device (reported lost)."
+    },
+    {
+      "id": "al-9005",
+      "employeeId": "u-1004",
+      "deviceId": "d-2004",
+      "action": "DEVICE_QUARANTINED",
+      "timestamp": "2026-11-12T08:00:00.000Z",
+      "description": "Device moved to Quarantine policy after failing OS version compliance review."
+    }
+  ],
+  "sessions": []
+}

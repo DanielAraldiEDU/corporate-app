@@ -1,0 +1,19 @@
+{
+  "name": "fieldops-mock-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mock FieldOps backend (json-server) simulating authentication and MDM device policies. Demo only.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "ACCESS_TOKEN_TTL_SECONDS=30 node server.js",
+    "reset": "node server.js --reset-only",
+    "test": "node --test test/api.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "json-server": "0.17.4"
+  }
+}
